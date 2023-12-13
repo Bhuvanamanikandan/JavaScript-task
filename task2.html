@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Alphanumeric </title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Alphanumeric</h1>
+
+  <label for="alphanumeric1">Alphanumeric 1:</label>
+  <input type="text" id="alphanumeric1" placeholder="Enter first alphanumeric">
+
+  <label for="alphanumeric2">Alphanumeric 2:</label>
+  <input type="text" id="alphanumeric2" placeholder="Enter second alphanumeric">
+
+  <button onclick="splitAlphanumeric()">Split</button>
+
+  <div id="result"></div>
+
+  <script>
+    function splitAlphanumeric() {
+      const getValue = id => document.getElementById(id).value;
+      const setResult = result => document.getElementById('result').innerHTML = result;
+
+      const alpha = id => getValue(id).replace(/\d+/g, '');
+      const num = id => getValue(id).replace(/\D+/g, '');
+
+      const alphaResult = alpha('alphanumeric1') + alpha('alphanumeric2');
+      const numResult = num('alphanumeric1') + num('alphanumeric2');
+
+      setResult(`Alphabetic Values: ${alphaResult} <br> Numeric Values: ${numResult}`);
+    }
+  </script>
+
+</body>
+</html>
